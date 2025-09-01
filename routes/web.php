@@ -23,3 +23,9 @@ Route::get('/hello', function () {
 Route::get('/world', function () {
     return view('hello.world', ['name' => 'ini pake folder lagi di views']);
 });
+
+// html encode
+Route::get('/html-encoding', function (\Illuminate\Http\Request $request) {
+    // http://127.0.0.1:8000/html-encoding?name=<h1>Abil</h1>
+    return view('html-encoding', ['name' => $request->input('name')]); // ambil input request dari path, query parameter
+});
